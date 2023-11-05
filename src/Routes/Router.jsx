@@ -8,6 +8,7 @@ import MyPostedJob from "../Pages/Home/MyPostedJob/MyPostedJob";
 import MyBids from "../Pages/Home/Home/MyBids/MyBids";
 import BidRequest from "../Pages/Home/Home/BidRequest/BidRequest";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
+import TabsCategory from "../Pages/Home/TabsCategory/TabsCategory";
 
 
 const router = createBrowserRouter([
@@ -35,6 +36,10 @@ const router = createBrowserRouter([
             {
                 path: '/bidRequest',
                 element: <BidRequest></BidRequest>
+            },
+            {
+                path: '/tabsCategory',
+                element: <TabsCategory></TabsCategory>
             },
             {
                 path: '/login',

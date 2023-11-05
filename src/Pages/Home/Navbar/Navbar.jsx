@@ -1,6 +1,7 @@
 import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../provider/AuthProvider";
+import img1 from '../../../assets/vvbb.png';
 
 const Navbar = () => {
     const { user, logOutUser } = useContext(AuthContext);
@@ -22,10 +23,12 @@ const Navbar = () => {
         <nav className="bg-green-600 p-4">
             <div className="container mx-auto flex items-center justify-between">
                 {/* Logo and Site Name */}
-                <div className="flex items-center">
-                    <img src="logo.png" alt="Logo" className="w-8 h-8 mr-2" />
-                    <span className="text-white text-lg font-semibold">Your Site Name</span>
-                </div>
+                <Link to='/'>
+                    <div className="flex items-center">
+                        <img src={img1} alt="Logo" className="w-10 h-10 mr-2 rounded-lg" />
+                        <span className="text-white text-lg font-semibold">IT Jobs</span>
+                    </div>
+                </Link>
 
                 {/* Hamburger Menu (Small Devices) */}
                 <div className="md:hidden">
@@ -75,7 +78,7 @@ const Navbar = () => {
                 </div>
 
                 {/* Navigation Links (Medium and Large Devices) */}
-                <ul className="hidden md:flex space-x-4">
+                <ul className="hidden md:flex space-x-12 font-bold">
                     <li>
                         <Link to="/" className="text-white hover-text-yellow-300">Home</Link>
                     </li>
