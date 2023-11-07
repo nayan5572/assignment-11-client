@@ -1,4 +1,5 @@
-
+import { Link } from 'react-router-dom';
+import img1 from '../../../assets/vvbb.png'
 
 
 const Footer = () => {
@@ -9,10 +10,10 @@ const Footer = () => {
                 <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
                     <div className="md:flex md:justify-between">
                         <div className="mb-6 md:mb-0">
-                            <a href="https://flowbite.com/" className="flex items-center">
-                                <img src="https://flowbite.com/docs/images/logo.svg" className="h-8 mr-3" alt="FlowBite Logo" />
-                                <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Flowbite</span>
-                            </a>
+                            <Link to="/" className="flex items-center">
+                                <img src={img1} className="h-12 w-12 mr-3 rounded-lg" alt="FlowBite Logo" />
+                                <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">IT Jobs</span>
+                            </Link>
                         </div>
                         <div className="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
                             <div>
@@ -52,7 +53,7 @@ const Footer = () => {
                     </div>
                     <hr className="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
                     <div className="sm:flex sm:items-center sm:justify-between">
-                        <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400 text-white">© 2023 <a href="https://flowbite.com/" className="hover:underline">Flowbite™</a>. All Rights Reserved.
+                        <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400 text-white">© 2023 <Link to="/" className="hover:underline">IT jobs</Link>. All Rights Reserved.
                         </span>
                         <div className="flex mt-4 space-x-5 sm:justify-center sm:mt-0">
                             <a href="#" className="text-white hover:text-gray-900 dark:hover:text-white">

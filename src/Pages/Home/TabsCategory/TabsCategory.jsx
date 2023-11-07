@@ -1,6 +1,7 @@
-
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+// import JobDetails from '../../JobDetails/JobDetails';
 
 
 const TabsCategory = () => {
@@ -10,7 +11,7 @@ const TabsCategory = () => {
 
 
     useEffect(() => {
-        fetch('http://localhost:4000/webDevelopment')
+        fetch(`http://localhost:4000/webDevelopment`)
             .then(res => res.json())
             .then(data => setWebData(data))
 
@@ -23,7 +24,8 @@ const TabsCategory = () => {
         fetch('http://localhost:4000/graphics')
             .then(res => res.json())
             .then(data => setGraphics(data))
-    }, [])
+    }, []);
+
 
     return (
         <div className='pt-8 container mx-auto text-center'>
@@ -47,7 +49,9 @@ const TabsCategory = () => {
                                             <p className="text-content2 text-start"><span className='font-bold'>Salary</span>: {myDesign.priceRange}</p>
                                             <p className="text-content2 mt-2 text-start"><span className='font-bold'>description</span>: {myDesign.shortDescription}</p>
                                             <div className="card-footer">
-                                                <button className="btn-secondary btn bg-green-400">Bid Now</button>
+                                                <Link to={`/webDevelopment/${myDesign._id}`}>
+                                                    <button className="btn-secondary btn bg-green-400">Bid Now</button>
+                                                </Link>
                                             </div>
                                         </div>
                                     </div>

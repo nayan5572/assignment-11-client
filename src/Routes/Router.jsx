@@ -9,6 +9,7 @@ import MyBids from "../Pages/Home/Home/MyBids/MyBids";
 import BidRequest from "../Pages/Home/Home/BidRequest/BidRequest";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import TabsCategory from "../Pages/Home/TabsCategory/TabsCategory";
+import JobDetails from "../Pages/JobDetails/JobDetails";
 
 
 const router = createBrowserRouter([
@@ -40,6 +41,11 @@ const router = createBrowserRouter([
             {
                 path: '/tabsCategory',
                 element: <TabsCategory></TabsCategory>
+            },
+            {
+                path: '/webDevelopment/:id',
+                element: <JobDetails></JobDetails>,
+                loader: ({ params }) => fetch(`http://localhost:4000/webDevelopment/${params.id}`)
             },
             {
                 path: '/login',
