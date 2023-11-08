@@ -12,7 +12,7 @@ const MyPostedJob = () => {
         if (!user) {
             return
         }
-        fetch(`http://localhost:4000/addJob/?email=${user?.email}`)
+        fetch(`https://assignment-11-jwt-server-teal.vercel.app/addJob/?email=${user?.email}`)
             .then(res => res.json())
             .then(data => setDeleteData(data))
     }, [user]);
@@ -24,7 +24,7 @@ const MyPostedJob = () => {
     // handle delete data from server
     const handleDelete = (_id) => {
 
-        fetch(`http://localhost:4000/addJob/${_id}`, {
+        fetch(`https://assignment-11-jwt-server-teal.vercel.app/addJob/${_id}`, {
             method: 'DELETE'
         })
             .then(res => res.json())

@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
-// import JobDetails from '../../JobDetails/JobDetails';
 
 
 const TabsCategory = () => {
@@ -11,17 +10,17 @@ const TabsCategory = () => {
 
 
     useEffect(() => {
-        fetch(`http://localhost:4000/webDevelopment`)
+        fetch(`https://assignment-11-jwt-server-teal.vercel.app/webDevelopment`)
             .then(res => res.json())
             .then(data => setWebData(data))
 
         // digital marketing data
-        fetch('http://localhost:4000/digitalMarketing')
+        fetch('https://assignment-11-jwt-server-teal.vercel.app/digitalMarketing')
             .then(res => res.json())
             .then(data => setDigital(data))
 
         // graphics Design data
-        fetch('http://localhost:4000/graphics')
+        fetch('https://assignment-11-jwt-server-teal.vercel.app/graphics')
             .then(res => res.json())
             .then(data => setGraphics(data))
     }, []);

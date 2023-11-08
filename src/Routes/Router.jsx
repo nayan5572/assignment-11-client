@@ -34,22 +34,23 @@ const router = createBrowserRouter([
             {
                 path: '/myPostedJob',
                 element: <PrivateRouter><MyPostedJob></MyPostedJob></PrivateRouter>,
-                loader: () => fetch(`http://localhost:4000/addJob`)
+                loader: () => fetch(`https://assignment-11-jwt-server-teal.vercel.app/addJob`)
             },
             {
                 path: '/addJob/:id',
                 element: <UpdateJobs></UpdateJobs>,
-                loader: ({ params }) => fetch(`http://localhost:4000/addJob/${params.id}`)
+                loader: ({ params }) => fetch(`https://assignment-11-jwt-server-teal.vercel.app/addJob/${params.id}`)
             },
             {
                 path: '/myBids',
                 element: <PrivateRouter><MyBids></MyBids></PrivateRouter>,
-                loader: () => fetch('http://localhost:4000/bitWeb')
+                loader: () => fetch('https://assignment-11-jwt-server-teal.vercel.app/bitWeb')
+                
             },
             {
                 path: '/bidRequest',
                 element: <PrivateRouter><BidRequest></BidRequest></PrivateRouter>,
-                loader: () => fetch('http://localhost:4000/bitWeb')
+                loader: () => fetch('https://assignment-11-jwt-server-teal.vercel.app/bitWeb')
             },
             {
                 path: '/tabsCategory',
@@ -58,17 +59,17 @@ const router = createBrowserRouter([
             {
                 path: '/webDevelopment/:id',
                 element: <PrivateRouter><JobDetails></JobDetails></PrivateRouter>,
-                loader: ({ params }) => fetch(`http://localhost:4000/webDevelopment/${params.id}`)
+                loader: ({ params }) => fetch(`https://assignment-11-jwt-server-teal.vercel.app/webDevelopment/${params.id}`)
             },
             {
                 path: '/graphicsDesign/:id',
                 element: <GraphicsJobDetails></GraphicsJobDetails>,
-                loader: ({ params }) => fetch(`http://localhost:4000/graphicsDesign/${params.id}`)
+                loader: ({ params }) => fetch(`https://assignment-11-jwt-server-teal.vercel.app/graphicsDesign/${params.id}`)
             },
             {
                 path: '/digitalMar/:id',
                 element: <DigitalMar></DigitalMar>,
-                loader: ({ params }) => fetch(`http://localhost:4000/digitalMar/${params.id}`)
+                loader: ({ params }) => fetch(`https://assignment-11-jwt-server-teal.vercel.app/digitalMar/${params.id}`)
             },
             {
                 path: '/login',

@@ -24,7 +24,7 @@ const GraphicsJobDetails = () => {
             email
         }
 
-        fetch('http://localhost:4000/bitWeb', {
+        fetch('https://assignment-11-jwt-server-teal.vercel.app/bitWeb', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

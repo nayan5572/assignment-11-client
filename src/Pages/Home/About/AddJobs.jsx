@@ -28,7 +28,7 @@ const AddJobs = () => {
         }
         console.log(myData);
 
-        fetch('http://localhost:4000/addJob', {
+        fetch('https://assignment-11-jwt-server-teal.vercel.app/addJob', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -49,23 +49,6 @@ const AddJobs = () => {
                 }
             })
     }
-
-    // const handleDelete = id => {
-    //     const proceed = confirm('Are You sure you want to delete');
-    //     if (proceed) {
-    //         fetch(`http://localhost:4000/addJob/${id}`, {
-    //             method: 'DELETE'
-    //         })
-    //             .then(res => res.json())
-    //             .then(data => {
-    //                 console.log(data);
-    //                 if (data.deletedCount > 0) {
-    //                     const remaining = deleteData.filter(booking => booking._id !== id);
-    //                     setDeleteData(remaining);
-    //                 }
-    //             })
-    //     }
-    // }
 
     return (
         <div>
