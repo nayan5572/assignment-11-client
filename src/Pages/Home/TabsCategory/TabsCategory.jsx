@@ -70,7 +70,9 @@ const TabsCategory = () => {
                                             <p className="text-content2 text-start"><span className='font-bold'>Salary</span>: {myDesign.priceRange}</p>
                                             <p className="text-content2 mt-2 text-start"><span className='font-bold'>description</span>: {myDesign.shortDescription}</p>
                                             <div className="card-footer">
-                                                <button className="btn-secondary btn bg-green-400">Bid Now</button>
+                                                <Link to={`/webDevelopment/${myDesign._id}`}>
+                                                    <button className="btn-secondary btn bg-green-400">Bid Now</button>
+                                                </Link>
                                             </div>
                                         </div>
                                     </div>
@@ -89,7 +91,9 @@ const TabsCategory = () => {
                                             <p className="text-content2 text-start"><span className='font-bold'>Salary</span>: {myDesign.priceRange}</p>
                                             <p className="text-content2 mt-2 text-start"><span className='font-bold'>description</span>: {myDesign.shortDescription}</p>
                                             <div className="card-footer">
-                                                <button className="btn-secondary btn bg-green-400">Bid Now</button>
+                                                <Link to={`/webDevelopment/${myDesign._id}`}>
+                                                    <button className="btn-secondary btn bg-green-400">Bid Now</button>
+                                                </Link>
                                             </div>
                                         </div>
                                     </div>

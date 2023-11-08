@@ -73,7 +73,7 @@ const MyPostedJob = () => {
                                 <td>{postData.maxPrice}</td>
                                 <td>{postData.email}</td>
                                 <td>
-                                    <Link to={`/updateJobs/${postData._id}`}>
+                                    <Link to={`/addJob/${postData._id}`}>
                                         <button className="btn btn-outline-success">Update User</button>
                                     </Link>
                                 </td>
