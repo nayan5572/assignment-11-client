@@ -69,6 +69,7 @@ const AuthProvider = ({ children }) => {
         const unScriber = onAuthStateChanged(auth, currentUser => {
             console.log('User in auth state change', currentUser);
             setUser(currentUser);
+            setLoading(false)
         });
         return () => {
             unScriber();

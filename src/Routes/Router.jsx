@@ -14,6 +14,7 @@ import UpdateJobs from "../Pages/UpdateJobs/UpdateJobs";
 import GraphicsJobDetails from './../Pages/GraphicsJobDetails/GraphicsJobDetails';
 import DigitalMar from "../Pages/DigitalMar/DigitalMar";
 import Contact from "../Pages/Home/Contact/Contact";
+import PrivateRouter from "./PrivateRouter";
 
 
 const router = createBrowserRouter([
@@ -28,26 +29,26 @@ const router = createBrowserRouter([
             },
             {
                 path: '/addJob',
-                element: <AddJobs></AddJobs>
+                element: <PrivateRouter><AddJobs></AddJobs></PrivateRouter>
             },
             {
                 path: '/myPostedJob',
-                element: <MyPostedJob></MyPostedJob>,
+                element: <PrivateRouter><MyPostedJob></MyPostedJob></PrivateRouter>,
                 loader: () => fetch(`http://localhost:4000/addJob`)
             },
             {
                 path: '/addJob/:id',
                 element: <UpdateJobs></UpdateJobs>,
-                // loader: ({ params }) => fetch(`http://localhost:4000/addJob/${params.id}`)
                 loader: ({ params }) => fetch(`http://localhost:4000/addJob/${params.id}`)
             },
             {
                 path: '/myBids',
-                element: <MyBids></MyBids>
+                element: <PrivateRouter><MyBids></MyBids></PrivateRouter>,
+                loader: () => fetch('http://localhost:4000/bitWeb')
             },
             {
                 path: '/bidRequest',
-                element: <BidRequest></BidRequest>
+                element: <PrivateRouter><BidRequest></BidRequest></PrivateRouter>
             },
             {
                 path: '/tabsCategory',
@@ -55,7 +56,7 @@ const router = createBrowserRouter([
             },
             {
                 path: '/webDevelopment/:id',
-                element: <JobDetails></JobDetails>,
+                element: <PrivateRouter><JobDetails></JobDetails></PrivateRouter>,
                 loader: ({ params }) => fetch(`http://localhost:4000/webDevelopment/${params.id}`)
             },
             {

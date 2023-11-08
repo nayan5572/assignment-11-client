@@ -42,7 +42,7 @@ const UpdateJobs = () => {
         })
             .then(res => res.json())
             .then(data => {
-                if (data.modifiedCount > 0) {
+                if (data.acknowledged) {
                     Swal.fire(
                         'Updated!',
                         'Your file has been Successfully Updated.',

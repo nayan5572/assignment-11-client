@@ -90,8 +90,6 @@ const MyPostedJob = () => {
                 </table>
             </div>
         </div>
-
-
     );
 };
 
