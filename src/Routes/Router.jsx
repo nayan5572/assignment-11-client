@@ -48,7 +48,8 @@ const router = createBrowserRouter([
             },
             {
                 path: '/bidRequest',
-                element: <PrivateRouter><BidRequest></BidRequest></PrivateRouter>
+                element: <PrivateRouter><BidRequest></BidRequest></PrivateRouter>,
+                loader: () => fetch('http://localhost:4000/bitWeb')
             },
             {
                 path: '/tabsCategory',

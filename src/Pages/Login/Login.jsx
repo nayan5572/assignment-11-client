@@ -31,8 +31,9 @@ const Login = () => {
             .then(result => {
                 console.log(result.user)
 
-                // navigate after login
-                naviGate(location?.state ? location.state : '/');
+                if (result.data.success) {
+                    naviGate(location?.state ? location?.state : '/');
+                }
             })
             .catch(error => {
                 console.error(error);
@@ -58,55 +59,10 @@ const Login = () => {
     }
 
     return (
-        // <div className="min-h-screen bg-gray-100 flex items-center justify-center">
-
-        //     <div className="fixed inset-0 flex items-center justify-center z-50">
-        //         <div className="bg-white rounded-lg p-6 shadow-lg w-1/2">
-        //             <h2 className="text-2xl font-semibold mb-4">Login</h2>
-        //             <form>
-        //                 <div className="mb-4">
-        //                     <label className="block text-gray-600 text-sm font-semibold" htmlFor="email">Email</label>
-        //                     <input
-        //                         type="email"
-        //                         id="email"
-        //                         name="email"
-        //                         className="w-full border border-gray-300 rounded p-2"
-        //                         placeholder="Your Email"
-        //                     />
-        //                 </div>
-        //                 <div className="mb-4">
-        //                     <label className="block text-gray-600 text-sm font-semibold" htmlFor="password">Password</label>
-        //                     <input
-        //                         type="password"
-        //                         id="password"
-        //                         name="password"
-        //                         className="w-full border border-gray-300 rounded p-2"
-        //                         placeholder="Your Password"
-        //                     />
-        //                 </div>
-        //                 <div className="mb-4 flex items-center justify-between">
-        //                     <label className="text-gray-600">
-        //                         <input type="checkbox" className="mr-2" /> Remember me
-        //                     </label>
-        //                     <Link href="#" className="text-blue-500 hover:underline">Forgot password?</Link>
-        //                 </div>
-        //                 <button
-        //                     type="submit"
-        //                     className="bg-blue-500 text-white py-2 px-4 rounded-md font-semibold hover:bg-blue-600"
-        //                 >
-        //                     Login
-        //                 </button>
-        //             </form>
-        //             <div className="mt-4">
-        //                 Do not have an account? <a href="#" className="text-blue-500 hover:underline">Sign up</a>
-        //             </div>
-        //         </div>
-        //     </div>
-        // </div>
-
         <div className="min-h-screen flex items-center justify-center bg-gray-100">
             <div className="bg-white w-96 p-8 rounded-lg shadow-lg">
                 <h2 className="text-2xl font-semibold mb-4">Login</h2>
+                <h2>{signInError}</h2>
 
                 <form onSubmit={handleLogin}>
                     <div className="mb-4">
