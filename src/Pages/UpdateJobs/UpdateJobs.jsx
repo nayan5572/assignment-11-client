@@ -33,7 +33,7 @@ const UpdateJobs = () => {
         console.log(myData2);
 
         // send data to the server
-        fetch(`http://localhost:4000/addJob/${_id}`, {
+        fetch(`https://assignment-11-jwt-server-teal.vercel.app/addJob/${_id}`, {
             method: "PUT",
             headers: {
                 'content-type': 'application/json'
