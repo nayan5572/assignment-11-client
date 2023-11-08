@@ -1,12 +1,16 @@
-import { useContext } from "react";
-import { AuthContext } from "../../../provider/AuthProvider";
+import { useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
+import { AuthContext } from "../../provider/AuthProvider";
+import { useContext } from "react";
 
-const AddJobs = () => {
+const UpdateJobs = () => {
     const { user } = useContext(AuthContext);
 
+    const myJobs = useLoaderData();
+    console.log(myJobs);
 
-    const handleSubmit = e => {
+
+    const handleUpdate = e => {
         e.preventDefault()
         const form = e.target;
         const email = form.email.value;
@@ -29,7 +33,7 @@ const AddJobs = () => {
         console.log(myData);
 
         fetch('http://localhost:4000/addJob', {
-            method: 'POST',
+            method: 'PUT',
             headers: {
                 'content-type': 'application/json'
             },
@@ -42,7 +46,7 @@ const AddJobs = () => {
                     Swal.fire({
                         position: "top",
                         icon: "success",
-                        title: "Your Job Successfully Added",
+                        title: "Your Job has been Successfully Updated.",
                         showConfirmButton: false,
                         timer: 1500
                     });
@@ -50,28 +54,12 @@ const AddJobs = () => {
             })
     }
 
-    // const handleDelete = id => {
-    //     const proceed = confirm('Are You sure you want to delete');
-    //     if (proceed) {
-    //         fetch(`http://localhost:4000/addJob/${id}`, {
-    //             method: 'DELETE'
-    //         })
-    //             .then(res => res.json())
-    //             .then(data => {
-    //                 console.log(data);
-    //                 if (data.deletedCount > 0) {
-    //                     const remaining = deleteData.filter(booking => booking._id !== id);
-    //                     setDeleteData(remaining);
-    //                 }
-    //             })
-    //     }
-    // }
 
     return (
         <div>
             <div className="max-w-md mx-auto my-8 p-4 border rounded-lg bg-white shadow-md">
                 <h2 className="text-3xl font-semibold mb-4 text-center">Add Job</h2>
-                <form onSubmit={handleSubmit}>
+                <form onSubmit={handleUpdate}>
                     <div className="mb-4">
                         <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="employerEmail">Email of the employer:</label>
                         <input
@@ -131,4 +119,4 @@ const AddJobs = () => {
     );
 };
 
-export default AddJobs;
+export default UpdateJobs;
