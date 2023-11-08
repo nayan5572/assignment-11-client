@@ -11,6 +11,9 @@ import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import TabsCategory from "../Pages/Home/TabsCategory/TabsCategory";
 import JobDetails from "../Pages/JobDetails/JobDetails";
 import UpdateJobs from "../Pages/UpdateJobs/UpdateJobs";
+import GraphicsJobDetails from './../Pages/GraphicsJobDetails/GraphicsJobDetails';
+import DigitalMar from "../Pages/DigitalMar/DigitalMar";
+import Contact from "../Pages/Home/Contact/Contact";
 
 
 const router = createBrowserRouter([
@@ -56,12 +59,26 @@ const router = createBrowserRouter([
                 loader: ({ params }) => fetch(`http://localhost:4000/webDevelopment/${params.id}`)
             },
             {
+                path: '/graphicsDesign/:id',
+                element: <GraphicsJobDetails></GraphicsJobDetails>,
+                loader: ({ params }) => fetch(`http://localhost:4000/graphicsDesign/${params.id}`)
+            },
+            {
+                path: '/digitalMar/:id',
+                element: <DigitalMar></DigitalMar>,
+                loader: ({ params }) => fetch(`http://localhost:4000/digitalMar/${params.id}`)
+            },
+            {
                 path: '/login',
                 element: <Login></Login>
             },
             {
                 path: '/register',
                 element: <Register></Register>
+            },
+            {
+                path: '/contactUs',
+                element: <Contact></Contact>
             },
         ]
     },

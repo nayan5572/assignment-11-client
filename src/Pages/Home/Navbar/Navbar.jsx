@@ -94,6 +94,9 @@ const Navbar = () => {
                     <li>
                         <Link to="/bidRequest" className="text-white hover-text-yellow-300">Bid Requests</Link>
                     </li>
+                    <li>
+                        <Link to="/contactUs" className="text-white hover-text-yellow-300">Contact Us</Link>
+                    </li>
                 </ul>
 
                 {/* User Profile Section (Medium and Large Devices) */}
@@ -126,16 +129,19 @@ const Navbar = () => {
                     <Link to="/" className="text-white hover-text-yellow-300 block py-2">Home</Link>
                 </li>
                 <li>
-                    <Link href="/add-job" className="text-white hover-text-yellow-300 block py-2">Add Job</Link>
+                    <Link to="/add-job" className="text-white hover-text-yellow-300 block py-2">Add Job</Link>
                 </li>
                 <li>
-                    <Link href="/my-posted-jobs" className="text-white hover-text-yellow-300 block py-2">My Posted Jobs</Link>
+                    <Link to="/my-posted-jobs" className="text-white hover-text-yellow-300 block py-2">My Posted Jobs</Link>
                 </li>
                 <li>
-                    <Link href="/my-bids" className="text-white hover-text-yellow-300 block py-2">My Bids</Link>
+                    <Link to="/my-bids" className="text-white hover-text-yellow-300 block py-2">My Bids</Link>
                 </li>
                 <li>
-                    <Link href="/bid-requests" className="text-white hover-text-yellow-300 block py-2">Bid Requests</Link>
+                    <Link to="/bid-requests" className="text-white hover-text-yellow-300 block py-2">Bid Requests</Link>
+                </li>
+                <li>
+                    <Link to="/contactUs" className="text-white hover-text-yellow-300 block py-2">Contact Us</Link>
                 </li>
                 <li>
                     <Link to="/login" htmlFor="modal-1" className="text-white hover-text-yellow-300 block py-2">
