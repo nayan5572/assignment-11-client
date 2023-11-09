@@ -1,8 +1,50 @@
+import { useContext, useEffect, useState } from "react";
 import { Link, useLoaderData } from "react-router-dom";
+import Swal from "sweetalert2";
+import { AuthContext } from "../../../../provider/AuthProvider";
 
 const BidRequest = () => {
+    const { user } = useContext(AuthContext);
+    // const loadedJobsData = useLoaderData();
     const myBidRequest = useLoaderData();
-    console.log(myBidRequest);
+    const [deleteData, setDeleteData] = useState(myBidRequest);
+
+    useEffect(() => {
+        if (!user) {
+            return
+        }
+        fetch(`https://assignment-11-jwt-server-teal.vercel.app/addJob/?email=${user?.email}`)
+            .then(res => res.json())
+            .then(data => setDeleteData(data))
+    }, [user]);
+
+
+
+    const handleDelete = (_id) => {
+
+        fetch(`https://assignment-11-jwt-server-teal.vercel.app/bitWeb/${_id}`, {
+            method: 'DELETE'
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.deletedCount > 0) {
+                    console.log('deleted successfully', data);
+
+                    // remove the user from the UI
+                    const remainingUsers = deleteData && deleteData.filter(user => user._id !== _id);
+                    setDeleteData(remainingUsers);
+                    Swal.fire(
+                        'Reject!',
+                        'Your Job has been deleted.',
+                        'success'
+                    )
+                }
+            })
+    }
+
+
+
+
     return (
         <div className="container mx-auto">
             <div className="flex w-full overflow-x-auto">
@@ -34,7 +76,7 @@ const BidRequest = () => {
                                     </Link>
                                 </td>
                                 <td>
-                                    <button className="btn btn-outline-error">Reject</button>
+                                    <button onClick={() => handleDelete(postData._id)} className="btn btn-outline-error">Reject</button>
                                 </td>
                             </tr>)
                         }

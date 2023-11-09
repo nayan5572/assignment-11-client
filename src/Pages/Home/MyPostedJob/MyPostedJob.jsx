@@ -31,7 +31,7 @@ const MyPostedJob = () => {
             .then(data => {
                 if (data.deletedCount > 0) {
                     console.log('deleted successfully', data);
-
+                    
                     // remove the user from the UI
                     const remainingUsers = deleteData && deleteData.filter(user => user._id !== _id);
                     setDeleteData(remainingUsers);
