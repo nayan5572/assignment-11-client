@@ -3,6 +3,7 @@ import { useLoaderData } from "react-router-dom";
 const MyBids = () => {
     const myBidData = useLoaderData();
     console.log(myBidData);
+
     return (
         <div className="container mx-auto">
             <div className="flex w-full overflow-x-auto">
