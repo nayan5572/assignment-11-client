@@ -5,7 +5,6 @@ import { AuthContext } from "../../../../provider/AuthProvider";
 
 const BidRequest = () => {
     const { user } = useContext(AuthContext);
-    // const loadedJobsData = useLoaderData();
     const myBidRequest = useLoaderData();
     const [deleteData, setDeleteData] = useState(myBidRequest);
 
@@ -13,7 +12,7 @@ const BidRequest = () => {
         if (!user) {
             return
         }
-        fetch(`https://assignment-11-jwt-server-teal.vercel.app/addJob/?email=${user?.email}`)
+        fetch(`https://assignment-11-jwt-server-teal.vercel.app/bitWeb/?email=${user?.email}`)
             .then(res => res.json())
             .then(data => setDeleteData(data))
     }, [user]);
@@ -41,8 +40,6 @@ const BidRequest = () => {
                 }
             })
     }
-
-
 
 
     return (
