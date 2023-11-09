@@ -26,7 +26,6 @@ const AddJobs = () => {
             minPrice,
             maxPrice
         }
-        console.log(myData);
 
         fetch('https://assignment-11-jwt-server-teal.vercel.app/addJob', {
             method: 'POST',

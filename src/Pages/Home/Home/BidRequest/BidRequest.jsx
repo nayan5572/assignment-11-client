@@ -59,7 +59,18 @@ const BidRequest = () => {
             category,
             maxPrice
         }
-        console.log(myBidsData);
+        console.log("My Data", myBidsData);
+
+        fetch('https://assignment-11-jwt-server-teal.vercel.app/myBids', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            }
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+            })
     }
 
 

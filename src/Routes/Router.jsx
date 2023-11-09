@@ -15,6 +15,7 @@ import GraphicsJobDetails from './../Pages/GraphicsJobDetails/GraphicsJobDetails
 import DigitalMar from "../Pages/DigitalMar/DigitalMar";
 import Contact from "../Pages/Home/Contact/Contact";
 import PrivateRouter from "./PrivateRouter";
+import AboutUs from "../Pages/Home/AboutUs/AboutUs";
 
 
 const router = createBrowserRouter([
@@ -26,6 +27,10 @@ const router = createBrowserRouter([
             {
                 path: '/',
                 element: <Home></Home>
+            },
+            {
+                path: '/aboutUs',
+                element: <AboutUs></AboutUs>
             },
             {
                 path: '/addJob',
