@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import { Link, useLoaderData } from "react-router-dom";
+import { useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../../../provider/AuthProvider";
 
@@ -41,44 +41,65 @@ const BidRequest = () => {
             })
     }
 
+    const handleBidReqSubmit = event => {
+        event.preventDefault();
+        const form = event.target;
+        const email = form.email.value;
+        const description = form.description.value;
+        const jobTitle = form.jobTitle.value;
+        const deadline = form.deadline.value;
+        const category = form.category.value;
+        const maxPrice = form.maxPrice.value;
+
+        const myBidsData = {
+            email,
+            description,
+            jobTitle,
+            deadline,
+            category,
+            maxPrice
+        }
+        console.log(myBidsData);
+    }
+
 
     return (
         <div className="container mx-auto">
             <div className="flex w-full overflow-x-auto">
-                <table className="table">
-                    <thead className="font-bold text-green-600">
-                        <tr>
-                            <th></th>
-                            <th>deadline</th>
-                            <th>Job Title</th>
-                            <th>Salary</th>
-                            <th></th>
-                            <th>Email</th>
-                            <th>Request Bid</th>
-                            <th>Reject Bid</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {
-                            deleteData.map(postData => <tr key={postData.id}>
-                                <th>{postData.category}</th>
-                                <td>{postData.deadline}</td>
-                                <td>{postData.jobTitle}</td>
-                                <td>{postData.name}</td>
-                                <td>{postData.maxPrice}</td>
-                                <td>{postData.email}</td>
-                                <td>
-                                    <Link>
+                <form className="table" onSubmit={handleBidReqSubmit}>
+                    <table className="table">
+                        <thead className="font-bold text-green-600">
+                            <tr>
+                                <th></th>
+                                <th>deadline</th>
+                                <th>Job Title</th>
+                                <th>Salary</th>
+                                <th></th>
+                                <th>Email</th>
+                                <th>Request Bid</th>
+                                <th>Reject Bid</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {
+                                deleteData.map(postData => <tr key={postData.id}>
+                                    <th name='category'>{postData.category}</th>
+                                    <td name='deadline'>{postData.deadline}</td>
+                                    <td name='jobTitle'>{postData.jobTitle}</td>
+                                    <td name='name'>{postData.name}</td>
+                                    <td name='maxPrice'>{postData.maxPrice}</td>
+                                    <td name='email'>{postData.email}</td>
+                                    <td>
                                         <button className="btn btn-outline-success">Accept</button>
-                                    </Link>
-                                </td>
-                                <td>
-                                    <button onClick={() => handleDelete(postData._id)} className="btn btn-outline-error">Reject</button>
-                                </td>
-                            </tr>)
-                        }
-                    </tbody>
-                </table>
+                                    </td>
+                                    <td>
+                                        <button onClick={() => handleDelete(postData._id)} className="btn btn-outline-error">Reject</button>
+                                    </td>
+                                </tr>)
+                            }
+                        </tbody>
+                    </table>
+                </form>
             </div>
         </div>
     );
