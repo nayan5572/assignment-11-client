@@ -60,7 +60,7 @@ const BidRequest = () => {
                     </thead>
                     <tbody>
                         {
-                            myBidRequest.map(postData => <tr key={postData.id}>
+                            deleteData.map(postData => <tr key={postData.id}>
                                 <th>{postData.category}</th>
                                 <td>{postData.deadline}</td>
                                 <td>{postData.jobTitle}</td>
